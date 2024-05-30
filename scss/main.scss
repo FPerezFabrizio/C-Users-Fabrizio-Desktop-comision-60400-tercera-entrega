@@ -1,0 +1,460 @@
+@import 'utilidades/variables';
+@import 'utilidades/mixins';
+
+/* Estilos generales */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: $bg-color;
+  font-family: $font-family;
+}
+
+main {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: $body-bg-color;
+}
+
+/* Estilos del encabezado */
+header {
+  width: 100%;
+  background-color: $header-bg-color;
+  color: $header-text-color;
+  padding: 15px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .header-container {
+    @include flex-center(space-between);
+    position: relative;
+
+    .logo {
+      @include flex-center;
+
+      img {
+        width: 60px;
+        margin-right: 10px;
+      }
+    }
+
+    .titulo {
+      color: $accent-color;
+      font-size: 1.5em;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    nav {
+      margin-left: auto;
+
+      .navbar-nav {
+        @include flex-center;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        .nav-item {
+          margin-right: 20px;
+
+          .nav-link {
+            color: $header-text-color;
+            text-decoration: none;
+            font-size: 1em;
+            padding: 5px 10px;
+            @include transition(color 0.3s ease, background-color 0.3s ease);
+
+            &:hover {
+              color: $link-hover-color;
+              background-color: $link-hover-bg;
+              border-radius: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Estilos del banner */
+.banner {
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+}
+
+/* Estilos del contenedor */
+.contenedor {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 20px;
+  justify-items: center;
+
+  .video video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .texto {
+    max-width: 50%;
+    text-align: center;
+    @include flex-center;
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: $text-color;
+    }
+  }
+}
+
+/* Estilos del pie de página */
+footer {
+  background-color: $header-bg-color;
+  color: $header-text-color;
+  padding: 20px;
+  text-align: center;
+
+  .redes-sociales {
+    a {
+      color: $header-text-color;
+      margin: 0 10px;
+      font-size: 1.5em;
+      @include transition(color 0.3s ease);
+
+      &:hover {
+        color: $accent-color;
+      }
+    }
+  }
+
+  .contenido-footer p {
+    margin-bottom: 0;
+    color: $accent-color;
+  }
+}
+
+/* Estilos para la sección de productos */
+.titulo-productos {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: bold;
+  color: $header-bg-color;
+}
+
+.fila-productos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  justify-content: center;
+
+  .productos {
+    background-color: $header-text-color;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: $card-shadow;
+    @include transition(transform 0.3s ease);
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    h3 {
+      margin-top: 15px;
+      font-size: 1.3em;
+      color: $header-bg-color;
+    }
+
+    .info-adicional {
+      p {
+        font-size: 1.1em;
+        font-weight: bold;
+        color: $header-bg-color;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: $button-bg;
+        color: $header-text-color;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        @include transition(background-color 0.3s ease);
+
+        &:hover {
+          background-color: $button-hover-bg;
+        }
+      }
+    }
+  }
+}
+
+/* Estilos para la sección de nosotros */
+.titulo-nosotros {
+  text-align: center;
+  font-size: 2em;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.nosotros-info {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  font-size: 1.2em;
+  line-height: 1.6;
+}
+
+/* Estilos para la sección de contacto */
+main .seccion-titulo {
+  @include flex-center;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+main h2 {
+  font-size: 2.5rem;
+  color: #333;
+}
+
+main .contenido {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  height: 100%;
+
+  .mapa {
+    flex: 1;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: $card-shadow;
+    }
+  }
+
+  .texto {
+    flex: 1;
+    max-width: 400px;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h3 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: $primary-color;
+      text-align: left;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        background: $primary-color;
+        color: $header-text-color;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        i {
+          margin-right: 10px;
+        }
+
+        &:hover {
+          background: $primary-hover-color;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+/* Estilos para la sección de FAQ */
+h2 {
+  color: $header-bg-color;
+}
+
+.accordion .card-header .btn-link {
+  text-decoration: none;
+  color: $header-bg-color;
+  font-weight: bold;
+
+  &:hover {
+    color: $accent-color;
+  }
+}
+
+/* Media Queries */
+
+/* Estilos para Mobile */
+@media (max-width: 767px) {
+  header {
+    @include flex-center(column);
+
+    .logo {
+      margin-bottom: 10px;
+    }
+
+    .titulo {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .navbar-nav {
+      @include flex-center(column);
+
+      .nav-item {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .nav-link {
+        padding: 5px 0;
+      }
+    }
+  }
+
+  .subtitulo {
+    padding: 10px;
+  }
+
+  .contenedor,
+  .productos {
+    padding: 10px;
+  }
+
+  .productos {
+    flex: 0 0 calc(100% - 20px);
+
+    h3 {
+      font-size: 1em;
+    }
+  }
+
+  .info-adicional p {
+    font-size: 1em;
+  }
+
+  .info-adicional button {
+    padding: 8px 16px;
+  }
+
+  main .contenido {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .mapa img {
+      margin-bottom: 20px;
+    }
+
+    .texto {
+      margin-left: 0;
+      text-align: left;
+
+      ul li {
+        justify-content: flex-start;
+
+        i {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}
+
+/* Estilos para Desktop */
+@media (min-width: 768px) {
+  header {
+    @include flex-center(column);
+
+    .logo {
+      margin-bottom: 10px;
+    }
+
+    .titulo {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .navbar-nav {
+      flex-direction: row;
+
+      .nav-item {
+        margin-right: 20px;
+      }
+
+      .nav-link {
+        padding: 5px 0;
+      }
+    }
+  }
+
+  .subtitulo {
+    padding: 10px;
+  }
+
+  .contenedor {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+
+    .video {
+      margin-right: 20px;
+    }
+
+    .texto {
+      max-width: 50%;
+    }
+  }
+
+  .fila-productos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .productos {
+    padding: 20px;
+
+    h3 {
+      font-size: 1.2em;
+    }
+  }
+
+  .info-adicional p {
+    font-size: 1.1em;
+  }
+
+  .info-adicional button {
+    padding: 10px 20px;
+  }
+}
