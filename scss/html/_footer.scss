@@ -1,0 +1,26 @@
+/* Estilos del pie de página */
+footer {
+    background-color: $header-bg-color;
+    color: $header-text-color;
+    padding: 20px;
+    text-align: center;
+  
+    .redes-sociales {
+      a {
+        color: $header-text-color;
+        margin: 0 10px;
+        font-size: 1.5em;
+        @include transition(color 0.3s ease);
+  
+        &:hover {
+          color: $accent-color;
+        }
+      }
+    }
+  
+    .contenido-footer p {
+      margin-bottom: 0;
+      color: $accent-color;
+    }
+  }
+  

@@ -1,0 +1,57 @@
+/* Estilos del encabezado */
+header {
+  width: 100%;
+  background-color: $header-bg-color;
+  color: $header-text-color;
+  padding: 15px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header .header-container {
+  @include flex-center;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+header .header-container .logo img {
+  width: 60px;
+  margin-right: 10px;
+}
+
+header .header-container .titulo {
+  color: $accent-color;
+  font-size: 1.5em;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+header nav {
+  margin-left: auto;
+}
+
+header .navbar-nav {
+  @include flex-center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  .nav-item {
+    margin-right: 20px;
+
+    .nav-link {
+      color: $header-text-color;
+      text-decoration: none;
+      font-size: 1em;
+      padding: 5px 10px;
+      @include transition(color 0.3s ease, background-color 0.3s ease);
+
+      &:hover {
+        color: $link-hover-color;
+        background-color: $link-hover-bg;
+        border-radius: 5px;
+      }
+    }
+  }
+}
