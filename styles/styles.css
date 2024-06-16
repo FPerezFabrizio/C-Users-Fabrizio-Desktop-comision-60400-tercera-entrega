@@ -44,7 +44,6 @@ header {
   padding: 15px 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 header .header-container {
   display: flex;
   flex-direction: row;
@@ -53,12 +52,10 @@ header .header-container {
   position: relative;
   flex-wrap: wrap;
 }
-
 header .header-container .logo img {
   width: 60px;
   margin-right: 10px;
 }
-
 header .header-container .titulo {
   color: #e74c3c;
   font-size: 1.5em;
@@ -67,12 +64,10 @@ header .header-container .titulo {
   transform: translateX(-50%);
   text-align: center;
 }
-
 header nav {
   margin-left: auto;
 }
-
-header .navbar-nav {
+header nav .navbar-nav {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -81,52 +76,111 @@ header .navbar-nav {
   padding: 0;
   margin: 0;
 }
-header .navbar-nav .nav-item {
+header nav .navbar-nav .nav-item {
   margin-right: 20px;
 }
-header .navbar-nav .nav-item .nav-link {
+header nav .navbar-nav .nav-item .nav-link {
   color: #ecf0f1;
   text-decoration: none;
   font-size: 1em;
   padding: 5px 10px;
   transition: color 0.3s ease, background-color 0.3s ease;
 }
-header .navbar-nav .nav-item .nav-link:hover {
+header nav .navbar-nav .nav-item .nav-link:hover {
   color: #e74c3c;
   background-color: rgba(231, 76, 60, 0.1);
   border-radius: 5px;
 }
 
-/* Estilos para Mobile */
 @media (max-width: 767px) {
   header {
+    width: 100%;
+    background-color: #343a40;
+    color: #ecf0f1;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .header-container .logo {
+    margin-right: auto;
+  }
+  .header-container .titulo {
+    text-align: center;
+    flex: 1;
+  }
+  .header-container nav {
+    margin-left: auto;
+  }
+  nav .navbar-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  nav .navbar-nav .nav-item {
+    margin-right: 10px;
+  }
+  nav .navbar-nav .nav-link {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 1em;
+    padding: 5px 8px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+  }
+  nav .navbar-nav .nav-link:hover {
+    color: #e74c3c;
+    background-color: rgba(231, 76, 60, 0.1);
+    border-radius: 5px;
+  }
+  .navbar-toggler {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+    padding: 0;
+    width: 30px; /* Ancho del botón de hamburguesa */
+    height: 30px; /* Alto del botón de hamburguesa */
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: space-around;
   }
-  header .logo {
-    margin-bottom: 10px;
+  .navbar-toggler span {
+    width: 100%; /* Ancho de las líneas del icono */
+    height: 2px; /* Grosor de las líneas del icono */
+    background-color: #fff; /* Color de las líneas del icono */
+    border-radius: 2px; /* Bordes redondeados para las líneas */
+    transition: background-color 0.3s ease; /* Transición suave */
   }
-  header .titulo {
-    margin-bottom: 10px;
-    text-align: center;
-    z-index: 1;
+  .navbar-toggler:hover span {
+    background-color: rgba(231, 76, 60, 0.1); /* Cambio de color al pasar el ratón */
   }
-  header .navbar-collapse {
-    background-color: #343a40;
+  .navbar-collapse {
+    display: none;
     width: 100%;
-    z-index: 0;
+    text-align: center;
+    margin-top: 10px;
   }
-  header .navbar-nav {
+  .navbar-collapse.show {
+    display: block;
+  }
+  .navbar-collapse .navbar-nav {
     flex-direction: column;
-    align-items: center;
   }
-  header .navbar-nav .nav-item {
+  .navbar-collapse .navbar-nav .nav-item {
     margin-right: 0;
     margin-bottom: 10px;
   }
-  header .navbar-nav .nav-link {
-    padding: 10px 0;
+  .navbar-collapse .navbar-nav .nav-link {
+    padding: 10px;
   }
   .subtitulo {
     padding: 10px;
@@ -284,27 +338,48 @@ header .navbar-nav .nav-item .nav-link:hover {
 /* Estilos para Desktop */
 @media (min-width: 1024px) {
   header {
+    width: 100%;
+    background-color: #343a40;
+    color: #ecf0f1;
+    padding: 15px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: space-between;
   }
-  header .logo {
-    margin-bottom: 10px;
+  .logo img {
+    width: 60px;
+    margin-right: 10px;
   }
-  header .titulo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+  .titulo {
+    flex: 1; /* El título ocupa el espacio restante */
+    text-align: center;
+    margin: 0; /* Eliminar margen en los títulos */
   }
-  header .navbar-nav {
+  nav {
+    margin-left: auto; /* La navegación se alinea a la derecha */
+  }
+  .navbar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: row;
   }
-  header .navbar-nav .nav-item {
+  .nav-item {
     margin-right: 20px;
   }
-  header .navbar-nav .nav-link {
-    padding: 5px 0;
+  .nav-link {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 1em;
+    padding: 5px 10px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+  }
+  .nav-link:hover {
+    color: #e74c3c;
+    background-color: rgba(231, 76, 60, 0.1);
+    border-radius: 5px;
   }
   .subtitulo {
     padding: 10px;
@@ -314,16 +389,20 @@ header .navbar-nav .nav-item .nav-link:hover {
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
+    gap: 20px; /* Espacio entre elementos */
   }
-  .contenedor .video {
+  .video {
+    flex: 1; /* Ocupar el espacio disponible */
     margin-right: 20px;
   }
-  .contenedor .texto {
-    max-width: 50%;
+  .texto {
+    flex: 1; /* Ocupar el espacio disponible */
+    max-width: 50%; /* Máximo ancho del texto */
   }
   .fila-productos {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+    gap: 20px; /* Espacio entre productos */
   }
   .productos {
     padding: 20px;
